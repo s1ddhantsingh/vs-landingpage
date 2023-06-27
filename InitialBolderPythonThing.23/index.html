@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!--<link rel="stylesheet" href="https://pyscript.net/alpha/pyscript.css" />-->
+  <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+</head>
+<body>
+    <div>~enter input waheguru~</div>
+    <input type="text" id="test-input"/>
+    <button id="submit-button" type="submit" pys-onClick="my_function">OK</button>
+    <div id="test-output"></div>
+
+<py-script>
+from js import console
+
+def HTML(text):
+    return text.replace("{{", "<").replace("}}", ">")
+
+def my_function(*args, **kwargs):
+
+    #print('args:', args)
+    #print('kwargs:', kwargs)
+
+    console.log(f'args: {args}')
+    console.log(f'kwargs: {kwargs}')
+    
+    text = Element('test-input').element.value
+
+    #print('text:', text)
+    console.log(f'text: {text}')
+
+    output = ""
+    str = text.split(' ')
+
+    for token in str:
+        bolded_subtoken = token[0:len(token)//2]
+        end_subtoken = token[len(token)//2:]
+
+        output += '{{b}}'+bolded_subtoken+'{{/b}}'+end_subtoken+' '
+
+    pyscript.write('test-output', HTML(output))
+</py-script>
+
+    </body>
+</html>

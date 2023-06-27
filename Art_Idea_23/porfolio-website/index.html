@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="shortcut icon" href="favicon.ico">
+    <title>siddhant singh ART website</title>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="supercontainer">
+            <section class="add-overflow">
+                <div class="circle-1"></div>
+                <div class="circle-2"></div>
+        
+                <div class="card">
+                    <h1 id="title"><span style="color:#f80759">siddhant the G.O.A.T's</span> <span style="text-decoration: none;border-bottom: 2px solid #f80759;">portfolio website...</span></h1>
+                    
+                    <div class="card">
+                        <h2>encapsulating my <span style="color:#4776E6;text-decoration: none;border-bottom: 2px solid #4776E6;">motivations</span> through <em style="color:#f80759;text-decoration: none;border-bottom: 2px solid #f80759;">haiku</em></h2>
+                        <!-- <div class="cards"> -->
+                        <em><p id="syllable-1">"whispers on the breeze,</p></em>
+                        <em><p id="syllable-2">nature's brush strokes paint the sky</p></em>
+                        <em><p id="syllable-3">silent art unfolds."</p></em>
+                        <button onclick="renderHaiku()">more haikus?</button>
+                        <!-- </div> -->
+                    </div>
+
+                    
+                    <div class="card add-overflow" id="images">
+                        <h2>my <em style="color:#f80759;text-decoration: none;border-bottom: 2px solid #f80759;">artwork</em> (scroll)</h2>
+                    </div>
+        
+                    <script>
+                        const image_names = ["EDITTED_IMAGE_ARTWORK.png", "APRIL-FINAL-ARTWORK-WOOOOO.PNG", "POSTERIZED_MARCH_IMG_FINAL_WOO.png", "IMG_1227 2.jpg", "coolguy.png", "tmp9cuakzov.png", "IMG_1226 2.jpg", "IMG_0601.png", "IMG_9803.png"];
+
+                        for (let i = 0; i < image_names.length; i++) {
+                            const node = document.createElement("div");
+                            
+                            // const textnode = document.createElement("h1");
+                            // textnode.innerHTML = image_names[i].split(".")[0];
+                            // textnode.setAttribute("id", "title")
+
+                            // document.getElementById("images").appendChild(textnode);
+                            node.classList.add("card")
+                            
+                            const img = document.createElement("img");
+                            img.src = `./imgs/${image_names[i]}`
+                            node.appendChild(img);
+
+                            document.getElementById("images").appendChild(node);
+                        }
+                    </script>
+        
+                </div>
+            </section>
+        </div>
+    </div>
+    
+
+    <script>
+        let list = ["whispers on the breeze,|nature's brush strokes paint the sky|silent art unfolds.", "canvas waits for touch,|brushes dance with colors bright,|silent tales unfold.", "shadows on the wall,|chiaroscuro whispers,|light and dark entwined.", "sculptor's hands shape clay,|lifelike forms emerge from earth,|frozen in motion.", "strokes of ink on page,|calligraphy tells stories,|elegant and bold.", "mosaic fragments,|tiny pieces form a whole,|kaleidoscope world.", "photography's eye,|capturing life's fleeting scenes,|eternal moments.", "dancer's body speaks,|graceful lines and curves convey,|emotions in flight.", "theater's grand stage,|actors wear masks, bare their souls,|life's reflections shown.", "sketches on paper,|delicate lines trace the world,|brief glimpses of truth.",
+                    "colors blend and mix,|palette whispers to canvas,|dreams become alive.", "paper meets pencil,|shading dreams with tender strokes,|art's embrace unfolds.", "glassblower's breath meets,|molten glass, shapes crystallize,|frozen fire's dance.", "sunrise on the beach,|artist captures fleeting hues,|morning's first embrace.", "bold graffiti strokes,|urban canvas speaks its truth,|city walls transformed.", "in the potter's hands,|spinning clay takes shape and form,|life from earth is born.", "textile threads entwine,|tapestry of life and time,|woven stories shared.", "street performer's art,|melodies dance on the wind,|city's heartbeat thrums.", "fingers meet the keys,|piano's voice sings to the heart,|emotions resonate.", "quill meets parchment,|scribes of old shared wisdom,|inked legacies last."];
+        let r_prev = 0
+
+        const renderHaiku = () => {
+            let r = Math.floor(Math.random() * list.length);
+            while (r == r_prev) r = Math.floor(Math.random() * list.length);
+            r_prev = r;
+
+            console.log(r, list[r])
+
+            const haiku = list[r]?.split("|");
+            for (let i = 0; i < 3; i++)
+                document.getElementById(`syllable-${i+1}`).innerHTML = (i===0 ? "\"" : "") + haiku[i] + (i===2 ? "\"" : "")
+        };
+    </script>
+</body>
+</html>

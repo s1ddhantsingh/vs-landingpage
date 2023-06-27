@@ -1,0 +1,18 @@
+{
+  "name": "chatgpt-training",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "./client/src/index.js start"
+  },
+  "keywords": [],
+  "author": "siddhant singh",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "openai": "^3.2.1",
+    "readline-sync": "^1.4.10"
+  },
+  "devDependencies": {},
+  "description": ""
+}
